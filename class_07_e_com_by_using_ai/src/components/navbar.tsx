@@ -1,13 +1,16 @@
+"use client"
+
+// src\components\navbar.tsx
+
 import Link from "next/link"
 import { Menu, ShoppingCart, User } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { ModeToggle } from "@/components/mode-toggle"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { useMobile } from "@/hooks/use-mobile"
 
 export function Navbar() {
-    // const isMobile = useMobile() // for condional rendering on break points.
+  // const isMobile = useMobile() // for condional rendering on break points.
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -25,7 +28,7 @@ export function Navbar() {
                 <Link href="/" className="text-sm font-medium transition-colors hover:text-primary">
                   Home
                 </Link>
-                <Link href="#" className="text-sm font-medium transition-colors hover:text-primary">
+                <Link href="/shop" className="text-sm font-medium transition-colors hover:text-primary">
                   Shop
                 </Link>
                 <Link href="#" className="text-sm font-medium transition-colors hover:text-primary">
@@ -55,7 +58,7 @@ export function Navbar() {
           <Link href="/" className="text-sm font-medium transition-colors hover:text-primary">
             Home
           </Link>
-          <Link href="#" className="text-sm font-medium transition-colors hover:text-primary">
+          <Link href="/shop" className="text-sm font-medium transition-colors hover:text-primary">
             Shop
           </Link>
           <Link href="#" className="text-sm font-medium transition-colors hover:text-primary">

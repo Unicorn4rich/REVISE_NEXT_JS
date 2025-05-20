@@ -1,13 +1,23 @@
+// src\components\hero-section.tsx
+
 import Image from "next/image"
 import { ShoppingBag, ArrowRight } from "lucide-react"
-
 import { Button } from "@/components/ui/button"
 
-export default function HeroSection() {
+
+export async function HeroSection() {
+
+  const res = await fetch("http://127.0.0.1:8000/");
+  const data = await res.json()
+  console.log("🤑", data) // success
+
+  const product1 = data[1]
+
   return (
-    <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-gradient-to-b from-white to-gray-100">
+    <section className="w-full py-[10px] md:py-24 lg:py-32 xl:py-15 bg-gradient-to-b from-background to-muted">
       <div className="container px-4 md:px-6">
-        <div className="grid gap-6 lg:grid-cols-[1fr_600px] lg:gap-12 xl:grid-cols-[1fr_750px]">
+        <div className="grid gap-10 lg:grid-cols-[1fr_700px] lg:gap-15 xl:grid-cols-[1fr_450px]">
+
           <div className="flex flex-col justify-center space-y-4">
             <div className="space-y-2">
               <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
@@ -79,10 +89,11 @@ export default function HeroSection() {
               </div>
             </div>
           </div>
+
           <div className="flex items-center justify-center">
             <div className="relative h-[450px] w-[450px] overflow-hidden rounded-xl">
               <Image
-                src="/placeholder.svg?height=900&width=900"
+                src={product1.image}
                 alt="Featured Product"
                 className="object-cover"
                 fill
@@ -101,6 +112,7 @@ export default function HeroSection() {
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>
